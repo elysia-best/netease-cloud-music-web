@@ -12,6 +12,37 @@ permissions:
   contents: write
 
 jobs:
+  build-for-spark:
+    runs-on: ubuntu-latest
+    name: Build for Spark Store
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up directory
+      run: |
+        mkdir -p build/
+        cp -rv deb_template build/
+        mkdir -p build/deb_template/opt/netease-cloud-music/resources/app/
+        cp -rv ./assets build/deb_template/opt/netease-cloud-music/resources/app/
+        cp -v ./package.json build/deb_template/opt/netease-cloud-music/resources/app/
+        cp -v ./index.js build/deb_template/opt/netease-cloud-music/resources/app/
+        cp -v ./LICENSE build/deb_template/opt/netease-cloud-music/resources/app/
+
+    - name: Build deb for Spark Store
+      run: |
+        STRIPPED_VERSION=$(cat package.json | grep '"version"' | head -1 | awk -F: '{ print $2 }' | sed 's/[", ]//g')
+        cd build/
+        dpkg-deb --build deb_template netease-cloud-music_$STRIPPED_VERSION_all.deb
+
+    - name: Upload assets to beta release
+      uses: softprops/action-gh-release@v2
+      if: contains( github.ref, 'refs/tags')
+      with:
+        files: | 
+          netease-cloud-music_*.deb
+        prerelease: false
+        tag_name:  ${{ github.ref_name }}
+
   build:
     runs-on: ${{ matrix.config.os }}
     name: ${{ matrix.config.name }}
@@ -35,6 +66,7 @@ jobs:
 
     - name: Install Node Dependencies
       run: |
+        rm -rf deb_template
         electron_use_remote_checksums=1 npm install
 
     - name: Building Electron App

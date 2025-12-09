@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Netease Cloud Music
+Name[zh_CN]=网易云音乐
+Exec=/opt/apps/com.electron/files/Electron/electron /opt/netease-cloud-music/resources/app %U
+Terminal=false
+Type=Application
+Icon=/opt/netease-cloud-music/assets/icons/icon.png
+StartupWMClass=netease-cloud-music
+Comment=Netease Cloud Music Web Client
+Categories=Player;

@@ -1,0 +1,14 @@
+Package: netease-cloud-music
+Version: %VERSION%
+License: ISC
+Vendor: elysia-best <a.elysia@proton.me>
+Architecture: all
+Maintainer: elysia-best <a.elysia@proton.me>
+Installed-Size: %INSTALLED_SIZE%
+Depends: libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0, com.electron
+Recommends: libappindicator3-1
+Section: AudioVideo;Player;
+Priority: optional
+Homepage: https://github.com/elysia-best/netease-cloud-music-web
+Description: 
+ .
