@@ -25,6 +25,7 @@ jobs:
         cp -rv deb_template build/
         mkdir -p build/deb_template/opt/netease-cloud-music/resources/app/
         cp -rv ./assets build/deb_template/opt/netease-cloud-music/resources/app/
+        ln -sv  resources/app/assets build/deb_template/opt/netease-cloud-music/assets
         cp -v ./package.json build/deb_template/opt/netease-cloud-music/resources/app/
         cp -v ./index.js build/deb_template/opt/netease-cloud-music/resources/app/
         cp -v ./LICENSE build/deb_template/opt/netease-cloud-music/resources/app/
