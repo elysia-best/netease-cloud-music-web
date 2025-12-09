@@ -12,7 +12,7 @@ extraFiles:
 
 linux:
   icon: "assets/icons/icon.icns"
-  category: "Player"
+  category: "AudioVideo;Player"
   executableName: "netease-cloud-music"
   desktop: {
     entry: {
