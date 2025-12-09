@@ -1,0 +1,52 @@
+name: Build App
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+    branches: 
+      - "master"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ${{ matrix.config.os }}
+    name: ${{ matrix.config.name }}
+    strategy:
+      matrix:
+        config:
+          - os: ubuntu-latest
+            electron_args: "dist-linux-loong64"
+          - os: ubuntu-latest
+            electron_args: "dist-linux"
+          - os: ubuntu-latest
+            electron_args: "dist-linux-arm64"
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Node
+      uses: actions/setup-node@v4
+      with:
+        node-version: 22
+
+    - name: Install Node Dependencies
+      run: |
+        electron_use_remote_checksums=1 npm install
+
+    - name: Building Electron App
+      run: npm run ${{ matrix.config.electron_args }}
+
+    - name: Upload assets to beta release
+      uses: softprops/action-gh-release@v2
+      if: contains( github.ref, 'refs/tags')
+      with:
+        files: | 
+          build/*.deb
+          build/*.tar.gz
+          build/*.AppImage
+        prerelease: false
+        tag_name:  ${{ github.ref_name }}

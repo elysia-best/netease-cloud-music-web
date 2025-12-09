@@ -8,7 +8,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron-forge start",
     "dist-linux": "ELECTRON_MIRROR=https://npmmirror.com/mirrors/electron/ electron-builder --linux --config electron-builder-linux.yml --publish=never",
-	"dist-linux-loong64": "ELECTRON_MIRROR=https://github.com/darkyzhou/electron-loong64/releases/download/ electron_use_remote_checksums=1 electron-builder --linux --config electron-builder-linux-loong64.yml --publish=never"
+    "dist-linux-arm64": "ELECTRON_MIRROR=https://npmmirror.com/mirrors/electron/ electron-builder --arm64 --linux --config electron-builder-linux.yml --publish=never",
+    "dist-linux-loong64": "ELECTRON_MIRROR=https://github.com/darkyzhou/electron-loong64/releases/download/ electron_use_remote_checksums=1 electron-builder --linux --config electron-builder-linux-loong64.yml --publish=never"
   },
   "keywords": [],
   "author": {
@@ -19,8 +20,7 @@
   "license": "ISC",
   "devDependencies": {
     "@electron-forge/cli": "^7.10.2",
-    "electron": "^39.1.2",
-    "electron-builder": "^26.0.12"
-   }
-   
+    "@loongdotjs/electron-builder": "^26.0.12-1",
+    "electron": "^37.2.5"
+  }
 }
