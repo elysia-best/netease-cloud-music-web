@@ -1,4 +1,4 @@
-productName: "netease-cloud-music-electron"
+productName: "netease-cloud-music"
 appId: "com.163.music.electron"
 asar: false
 compression: "store"
@@ -13,7 +13,7 @@ extraFiles:
 linux:
   icon: "assets/icons/icon.icns"
   category: "Player"
-  executableName: "netease-cloud-music-electron"
+  executableName: "netease-cloud-music"
   desktop: {
     entry: {
       Name: "Netease Cloud Music",
