@@ -48,4 +48,4 @@
 
 ## 许可证
 
-该项目遵循 MIT 许可证。详情请查看 [LICENSE](LICENSE) 文件。
+该项目遵循 ISC 许可证。详情请查看 [LICENSE](LICENSE) 文件。
