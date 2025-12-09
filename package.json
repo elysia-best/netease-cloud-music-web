@@ -7,7 +7,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron-forge start",
-    "dist-linux": "ELECTRON_MIRROR=https://npmmirror.com/mirrors/electron/ electron-builder --linux --config electron-builder-linux.yml --publish=never"
+    "dist-linux": "ELECTRON_MIRROR=https://npmmirror.com/mirrors/electron/ electron-builder --linux --config electron-builder-linux.yml --publish=never",
+	"dist-linux-loong64": "ELECTRON_MIRROR=https://github.com/darkyzhou/electron-loong64/releases/download/ electron_use_remote_checksums=1 electron-builder --linux --config electron-builder-linux-loong64.yml --publish=never"
   },
   "keywords": [],
   "author": {

@@ -1,0 +1,29 @@
+productName: "netease-cloud-music"
+appId: "com.163.music.electron"
+asar: false
+compression: "store"
+copyright: "elysia-best"
+artifactName: "netease-cloud-music_${version}_${os}.${ext}"
+directories:
+  output: "build"
+extraFiles:
+  - from: "assets"
+    to: "assets"
+
+linux:
+  icon: "assets/icons/icon.icns"
+  category: "AudioVideo;Player"
+  executableName: "netease-cloud-music"
+  desktop: {
+    entry: {
+      Name: "Netease Cloud Music",
+      Comment: "Netease Cloud Music Web Client",
+      Type: "Application",
+      Categories: "AudioVideo;Player;"
+    }
+  }
+  target:
+    - target: "tar.gz"
+      arch: "loong64"
+    - target: "deb"
+      arch: "loong64"
