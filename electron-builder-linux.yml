@@ -3,7 +3,7 @@ appId: "com.163.music.electron"
 asar: false
 compression: "store"
 copyright: "elysia-best"
-artifactName: "netease-cloud-music_${version}_${os}.${ext}"
+artifactName: "netease-cloud-music_${version}_${os}_amd64.${ext}"
 directories:
   output: "build"
 extraFiles:

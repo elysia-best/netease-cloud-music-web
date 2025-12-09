@@ -3,7 +3,7 @@ appId: "com.163.music.electron"
 asar: false
 compression: "store"
 copyright: "elysia-best"
-artifactName: "netease-cloud-music_${version}_${os}_loong64.${ext}"
+artifactName: "netease-cloud-music_${version}_${os}_arm64.${ext}"
 directories:
   output: "build"
 extraFiles:
@@ -24,6 +24,5 @@ linux:
   }
   target:
     - target: "tar.gz"
-      arch: "loong64"
+    - target: "AppImage"
     - target: "deb"
-      arch: "loong64"
