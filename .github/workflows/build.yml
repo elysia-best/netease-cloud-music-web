@@ -28,6 +28,13 @@ jobs:
         cp -v ./index.js build/deb_template/opt/netease-cloud-music/resources/app/
         cp -v ./LICENSE build/deb_template/opt/netease-cloud-music/resources/app/
 
+        STRIPPED_VERSION=$(cat package.json | grep '"version"' | head -1 | awk -F: '{ print $2 }' | sed 's/[", ]//g')
+        # 替换版本号
+        sed -i "s/%VERSION%/$STRIPPED_VERSION/g" "build/deb_template/DEBIAN/control"
+        # 替换软件包大小
+        app_size=$(du -sh --block-size=1k "build/deb_template" | awk '{print $1}')
+        sed -i "s/%INSTALLED_SIZE%/$app_size/g" "build/deb_template/DEBIAN/control"
+
     - name: Build deb for Spark Store
       run: |
         STRIPPED_VERSION=$(cat package.json | grep '"version"' | head -1 | awk -F: '{ print $2 }' | sed 's/[", ]//g')
@@ -39,7 +46,7 @@ jobs:
       if: contains( github.ref, 'refs/tags')
       with:
         files: | 
-          netease-cloud-music_*.deb
+          build/netease-cloud-music_*.deb
         prerelease: false
         tag_name:  ${{ github.ref_name }}
 
