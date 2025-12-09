@@ -1,0 +1,25 @@
+{
+  "name": "netease-music",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://blog.qinyn.eu.org",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron-forge start",
+    "dist-linux": "ELECTRON_MIRROR=https://npmmirror.com/mirrors/electron/ electron-builder --linux --config electron-builder-linux.yml --publish=never"
+  },
+  "keywords": [],
+  "author": {
+    "name": "elysia-best",
+    "email": "a.elysia@proton.com",
+    "url": "https://blog.qinyn.eu.org"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "@electron-forge/cli": "^7.10.2",
+    "electron": "^39.1.2",
+    "electron-builder": "^26.0.12"
+   }
+   
+}
