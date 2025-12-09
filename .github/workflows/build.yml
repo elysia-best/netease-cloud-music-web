@@ -39,7 +39,7 @@ jobs:
       run: |
         STRIPPED_VERSION=$(cat package.json | grep '"version"' | head -1 | awk -F: '{ print $2 }' | sed 's/[", ]//g')
         cd build/
-        dpkg-deb --build deb_template netease-cloud-music_$STRIPPED_VERSION_all.deb
+        dpkg-deb --build deb_template netease-cloud-music_$(echo $STRIPPED_VERSION)_all.deb
 
     - name: Upload assets to beta release
       uses: softprops/action-gh-release@v2
