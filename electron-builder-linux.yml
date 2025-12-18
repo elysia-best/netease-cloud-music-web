@@ -9,7 +9,10 @@ directories:
 extraFiles:
   - from: "assets"
     to: "assets"
-
+files:
+  - filter:
+      - '!deb_template/**'
+      
 linux:
   icon: "assets/icons/icon.icns"
   category: "AudioVideo;Player"

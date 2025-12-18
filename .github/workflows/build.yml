@@ -8,6 +8,9 @@ on:
       - "master"
   workflow_dispatch:
 
+env:
+  LOONG64_ELECTRON_VERSION: "39.2.3"
+
 permissions:
   contents: write
 
@@ -75,8 +78,12 @@ jobs:
 
     - name: Install Node Dependencies
       run: |
-        rm -rf deb_template
         electron_use_remote_checksums=1 npm install
+        # if is loong64, install loong64 electron
+        if [ "${{ matrix.config.electron_args }}" = "dist-linux-loong64"
+        then
+          npm install -D electron@${{ env.LOONG64_ELECTRON_VERSION }}
+        fi
 
     - name: Building Electron App
       run: npm run ${{ matrix.config.electron_args }}
