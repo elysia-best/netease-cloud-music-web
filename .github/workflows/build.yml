@@ -80,7 +80,7 @@ jobs:
       run: |
         electron_use_remote_checksums=1 npm install
         # if is loong64, install loong64 electron
-        if [ "${{ matrix.config.electron_args }}" = "dist-linux-loong64"
+        if [ "${{ matrix.config.electron_args }}" = "dist-linux-loong64" ];
         then
           npm install -D electron@${{ env.LOONG64_ELECTRON_VERSION }}
         fi
