@@ -20,6 +20,7 @@ linux:
   desktop: {
     entry: {
       Name: "Netease Cloud Music",
+      "Name[zh_CN]": "网易云音乐",
       Comment: "Netease Cloud Music Web Client",
       Type: "Application",
       Categories: "AudioVideo;Player;"
